@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-  #Schema Goes Here
+  #SCHEMA
   type Launch {
   id: ID!
   site: String
@@ -29,6 +29,14 @@ const typeDefs = gql`
   enum PatchSize {
     SMALL
     LARGE
+  }
+
+  # QUERIES
+
+  type Query {
+    launches: [Launch]!
+    launch(id: ID!): Launch
+    me: User
   }
 }
 `;
