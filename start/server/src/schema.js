@@ -11,6 +11,7 @@ const typeDefs = gql`
   mission: Mission
   rocket: Rocket
   isBooked: Boolean!
+  }
 
   # ! - means this field's value can never be null
   type Rocket {
@@ -37,7 +38,7 @@ const typeDefs = gql`
   }
 
   # return Type of bookTrips/cancelTrips mutations
-  TripUpdateResponse {
+  type TripUpdateResponse {
     success: Boolean!
     message: String
     launches: [Launch]
@@ -59,7 +60,6 @@ const typeDefs = gql`
     cancelTrip(launchId: ID!): TripUpdateResponse!
     login(email: String): String # login token
   }
-}
 `;
 
 module.exports = typeDefs;
