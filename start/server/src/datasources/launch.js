@@ -40,24 +40,24 @@ class LaunchAPI extends RESTDataSource {
     };
   }
 
-}
-
-async getAllLaunches() {
-  const response = await this.get('launches');
-  return Array.isArray(response) ? response.map(launch => this.launchReducer(launch)) : [];
-}
-
-async getLaunchById({ launchId }) {
-  const response = await this.get('launches', { flight_number: launchId });
-  return this.launchReducer(response[0]);
-}
-
-getLaunchesByIds({ launchIds }) {
-  return Promise.all(
-    launchIds.map(launchId => this.getLaunchById({ launchId })),
-  );
-}
-
+  
+  async getAllLaunches() {
+    const response = await this.get('launches');
+    return Array.isArray(response) ? response.map(launch => this.launchReducer(launch)) : [];
+  }
+  
+  async getLaunchById({ launchId }) {
+    const response = await this.get('launches', { flight_number: launchId });
+    return this.launchReducer(response[0]);
+  }
+  
+  getLaunchesByIds({ launchIds }) {
+    return Promise.all(
+      launchIds.map(launchId => this.getLaunchById({ launchId })),
+      );
+    }
+    
+  }
 
 
 
