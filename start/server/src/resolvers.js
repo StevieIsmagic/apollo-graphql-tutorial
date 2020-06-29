@@ -16,7 +16,7 @@ fieldName: (parent, args, context, info) => data;
 
   parent - return value of the resolver for this field's parent
 
-  args - object that contains all the GraphQL arguments     provided for this field
+  args - object that contains all the GraphQL arguments provided for this field
 
   context - object that is shared across all resolvers that execute for a particular operation. Use this to share per-operation-state, such as authentication information and access to data sources.
   

@@ -1,5 +1,7 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 const { getArgumentValues } = require('graphql/execution/values');
+const moment = require('moment');
+
 
 /*
 The RESTDataSource class automatically caches responses from REST resources with no additional setup. We call this feature partial query caching. It enables you to take advantage of the caching logic that the REST API already exposes.
@@ -25,7 +27,7 @@ class LaunchAPI extends RESTDataSource {
   launchReducer(launch) {
     return {
       id: launch.flight_number || 0,
-      cursor: `${launch.launch_date_unix}`,
+      cursorLaunchDate: moment.unix(`${launch.launch_date_unix}`).format("HH:mm YYYY-MM-DD"),
       site: launch.launch_site && launch.launch_site.site_name,
       mission: {
         name: launch.mission_name,
