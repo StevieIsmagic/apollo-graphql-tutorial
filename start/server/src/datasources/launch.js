@@ -27,7 +27,8 @@ class LaunchAPI extends RESTDataSource {
   launchReducer(launch) {
     return {
       id: launch.flight_number || 0,
-      cursorLaunchDate: moment.unix(`${launch.launch_date_unix}`).format("HH:mm YYYY-MM-DD"),
+      cursor: launch.launch_date_unix,
+      launchDate: moment.unix(`${launch.launch_date_unix}`).format("HH:mm YYYY-MM-DD"),
       site: launch.launch_site && launch.launch_site.site_name,
       mission: {
         name: launch.mission_name,

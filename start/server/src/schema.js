@@ -8,7 +8,8 @@ const typeDefs = gql`
   type Launch {
   id: ID!
   site: String
-  cursorLaunchDate: String
+  cursor: String
+  launchDate: String
   mission: Mission
   rocket: Rocket
   isBooked: Boolean!
