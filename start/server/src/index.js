@@ -27,7 +27,8 @@ const server = new ApolloServer({
     userAPI: new UserAPI({ store })
   }),
   engine: {
-    reportSchema: true
+    reportSchema: true,
+    graphVariant: "current"
   }
 });
 
