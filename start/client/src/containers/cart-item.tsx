@@ -9,7 +9,13 @@ import * as LaunchDetailTypes from '../pages/__generated__/LaunchDetails';
 export const GET_LAUNCH = gql`
   query GetLaunch($launchId: ID!) {
     launch(id: $launchId) {
-      ...LaunchTile
+      id
+      mission {
+        name
+      }
+      rocket {
+        name
+      }
     }
   }
   ${LAUNCH_TILE_DATA}
