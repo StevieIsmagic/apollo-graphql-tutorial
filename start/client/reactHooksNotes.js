@@ -10,7 +10,7 @@ There are (2) common kinds of side effects in React components:
 
 1 - Effects that don't require cleanup:
 
-Sometimes, we want to run some additional code after React has updated the DOM. Network requests, manual DOM mutations, and logging are common examples. We say this because we can run them and immediately forget about them.
+Sometimes, we want to run some additional code after React has updated the DOM. Network requests, manual DOM mutations, and logging are common examples. We say this because we can run them and immediately forget about them.q
 
 2 - Effects that do require cleanup:
 
