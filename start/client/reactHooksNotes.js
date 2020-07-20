@@ -18,6 +18,8 @@ Sometimes, we might want to set up a subscription to some external data source. 
 
 With EFFECTS, if your effect returns a function, React will run it when it's time to clean up. Returning a function from the Effect Hook is the optional clean up mechanism . Every effect may return a function that cleans up after it. This lets us keep the logic for adding and removing subscriptions close to each other. They’re part of the same effect! React performs the cleanup when when the component unmounts. Remember Effects run after every render.
 
+One of the problems we outlined in the Motivation for Hooks is that class lifecycle methods often contain unrelated logic, but related logic gets broken up into several methods. Hooks let us split the code based on what it is doing rather than a lifecycle method name. 
+
 NOTE -
 We can use multiple State + Effect Hooks in a single component
 
