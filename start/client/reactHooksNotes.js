@@ -16,9 +16,14 @@ Sometimes, we want to run some additional code after React has updated the DOM. 
 
 Sometimes, we might want to set up a subscription to some external data source. In that case, it's important to clean up so that we don't introduce a memory leak. In a React class, you would typically set up a subscription in componentDidMount, and clean it up in componentWillUnmount. Notice how these lifecycle methods mirror each other. Lifecycle methods force us to split this logic even though conceptually code in both of them is related to the same effect.
 
-With EFFECTS, if your effect returns a function, React will run it when it's time to clean up. Returning a function from the Effect Hook is the optional clean up mechanism . Every effect may return a function that cleans up after it. This lets us keep the logic for adding and removing subscriptions close to each other. They’re part of the same effect! React performs the cleanup when when the component unmounts. Remember Effects run after every render.
+With EFFECTS, if your effect returns a function, React will run it when it's time to clean up. Returning a function from the Effect Hook is the optional clean up mechanism . Every effect may return a function that cleans up after it. This lets us keep the logic for adding and removing subscriptions close to each other. They’re part of the same effect! React performs the cleanup when when the component unmounts. 
 
-One of the problems we outlined in the Motivation for Hooks is that class lifecycle methods often contain unrelated logic, but related logic gets broken up into several methods. Hooks let us split the code based on what it is doing rather than a lifecycle method name. 
+One of the problems we outlined in the Motivation for Hooks is that class lifecycle methods often contain unrelated logic, but related logic gets broken up into several methods. Hooks let us split the code based on what it is doing rather than a lifecycle method name.
+
+Remember Effects run after every render. You can tell React to skip applying an effect if certain values haven't changed between re-renders. (1) To do so, pass an array as an optional second argument to useEffect. If the value in the array is same for both current / previous renders, React will not apply the effect. This also works for effects that have a cleanup phase (ie. return a a cleanup fuction). (2) If you want react to run an effect and clean it up only once (on mount and unmount), you can pass an empty array ([]) as the second argument . This tells React that your effect doesn't depend on ANY values from props or state, so it never needs to re-run.
+
+
+
 
 NOTE -
 We can use multiple State + Effect Hooks in a single component
