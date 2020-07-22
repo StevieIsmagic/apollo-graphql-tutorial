@@ -23,8 +23,6 @@ One of the problems we outlined in the Motivation for Hooks is that class lifecy
 Remember Effects run after every render. You can tell React to skip applying an effect if certain values haven't changed between re-renders. (1) To do so, pass an array as an optional second argument to useEffect. If the value in the array is same for both current / previous renders, React will not apply the effect. This also works for effects that have a cleanup phase (ie. return a a cleanup fuction). (2) If you want react to run an effect and clean it up only once (on mount and unmount), you can pass an empty array ([]) as the second argument . This tells React that your effect doesn't depend on ANY values from props or state, so it never needs to re-run.
 
 
-
-
 NOTE -
 We can use multiple State + Effect Hooks in a single component
 
@@ -35,5 +33,7 @@ The answer is that React relies on the order in which Hooks are called.
 As long as the order of the Hook calls is the same between renders, React can associate some local state with each of them.
 
 THIS IS WHY HOOKS MUST BE CALLED ON THE TOP LEVEL OF OUR COMPONENTS
+
+HOOKS API REFERENCE - https://reactjs.org/docs/hooks-reference.html
 */
 
