@@ -12,7 +12,14 @@ export const LOGIN_USER = gql`
   }
 `;
 
+/*
+NOTE - A tuple is a collection which is ordered and unchangeable.
+
+the first value in the useMutation hook result tuple is a mutate function that actually triggers the mutation when it is called. The second value in the result tuple is a result object that contains loading and error state, as well as the return value from the mutation.
+
+Let's bind the LOGIN_USER mutation to our Login() component by passing it to the useMutation hook.
+*/
 export default function Login() {
-  const [login, { data }] = useMutation(LOGIN_USER);
+  const [login, { data }] = useMutation<LoginTypes.login, LoginTypes.loginVariables>(LOGIN_USER);
   return <LoginForm login={login} />;
 }
